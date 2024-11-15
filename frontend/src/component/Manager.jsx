@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 const Manager = () => {
   const ref = useRef();
   const passwordRef = useRef();
-  const [form, setform] = useState({});
+  const [form, setform] = useState({ site: "", username: "", password: "" });
   const [passwordArray, setpasswordArray] = useState([]);
 
   const getPasswords= async()=>{
@@ -218,7 +218,8 @@ const Manager = () => {
                     </td>
                     <td className="border border-green-500 text-center">
                       <div className="flex gap-3 max-md:gap-1 justify-center items-center">
-                        {item.password}
+                        {/* {item.password} */}
+                        {"*".repeat(item.password.length)}
                         <img
                           className="cursor-pointer max-md:size-4"
                           onClick={() => {
