@@ -4,6 +4,7 @@ A secure password manager application built using the MERN stack with a Node.js 
 
 ## Table of Contents
 - [Project Overview](#project-overview)
+- [Clone the Repository](#clone-the-repository)
 - [Installation](#installation)
 - [Backend Setup](#backend-setup)
 - [Frontend Setup](#frontend-setup)
@@ -12,6 +13,12 @@ A secure password manager application built using the MERN stack with a Node.js 
 
 ## Project Overview
 This project consists of a backend server that handles API requests and a frontend built with React for user interaction. Users can securely store, manage, and retrieve passwords.
+
+## Clone the Repository
+To get a copy of this project, run the following command:
+```
+git clone https://github.com/YogitaGami/Password-Manager.git
+```
 
 ## Installation
 To run the project, you need to set up both the backend and frontend.
