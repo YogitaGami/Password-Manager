@@ -11,6 +11,7 @@ This is the frontend for the Password Manager project, built with React, Tailwin
 - **React**: Library for building user interfaces
 - **Vite**: Build tool for modern web projects
 - **Tailwind CSS**: Utility-first CSS framework for styling
+- **react-toastify**: For showing notifications
 - **uuid**: For generating unique IDs
 
 ## Installation
