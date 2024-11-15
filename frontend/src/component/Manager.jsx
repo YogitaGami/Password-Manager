@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { v4 as uuidv4 } from 'uuid';
 
 const Manager = () => {
@@ -34,22 +36,41 @@ const Manager = () => {
       setpasswordArray([...passwordArray, {...form, id: newId}]);
       let res = await fetch("http://localhost:3000/", {method: "POST", headers: { "Content-Type": "application/json"}, body:JSON.stringify({...form, id: newId}) })
       await setform({ site: "", username: "", password: "" })
+      toast.success("Password saved Successfully", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
     else{
-      alert("Error: Your input is too Short!")
+      toast.success("Error: Your input is too Short!", {
+     });
     }
   };
   const deleteBtn = async(id) => {
     let conf= confirm("Are you sure, you want to delete!")
-    console.log(JSON.stringify(id))
     if(conf){
       await setpasswordArray(passwordArray.filter(item=>item.id !== id));
       let res = await fetch("http://localhost:3000/", {method: "DELETE", headers: { "Content-Type": "application/json"}, body:JSON.stringify({id})})
     }
+    toast.success("Password Deleted", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
   const editBtn = async(id) => {
     setform(passwordArray.find(i=> i.id === id))
-    console.log(id)
     // if any such id exist in database, delete it
     await fetch("http://localhost:3000/", {method: "DELETE", headers: { "Content-Type": "application/json"}, body:JSON.stringify({id}) })
     setpasswordArray(passwordArray.filter(i => i.id !== id));
@@ -60,11 +81,35 @@ const Manager = () => {
   };
 
   const copytext = (text) => {
+    toast.success("Copied to clipboard!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     navigator.clipboard.writeText(text);
   };
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition="Bounce"
+      />
+      <ToastContainer />
       <div className="PassMang w-[80%] max-md:w-[90%] my-7 m-auto ">
         <div className="title flex gap-0 font-bold text-3xl md:text-2xl max-md:text-xl justify-center">
           <span className="text-green-400">&lt;</span>
