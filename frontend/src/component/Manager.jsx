@@ -29,10 +29,15 @@ const Manager = () => {
   };
 
   const saveBtn = async() => {
+    if (form.site.length >3 && form.username.length >3 && form.password.length >3){
       let newId = uuidv4();
       setpasswordArray([...passwordArray, {...form, id: newId}]);
       let res = await fetch("http://localhost:3000/", {method: "POST", headers: { "Content-Type": "application/json"}, body:JSON.stringify({...form, id: newId}) })
       await setform({ site: "", username: "", password: "" })
+    }
+    else{
+      alert("Error: Your input is too Short!")
+    }
   };
   const deleteBtn = async(id) => {
     let conf= confirm("Are you sure, you want to delete!")
